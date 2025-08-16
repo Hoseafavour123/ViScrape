@@ -1,8 +1,9 @@
 import { prisma } from "@/lib/prisma"
 import { auth } from "@clerk/nextjs/server"
+import Editor from "../../_components/Editor"
 
 
-async function page({ params} : {params: { workflowId: string}}) {
+async function Page({ params} : {params: { workflowId: string}}) {
     const { workflowId} = params
 
     const { userId } = auth()
@@ -25,4 +26,4 @@ async function page({ params} : {params: { workflowId: string}}) {
     return <Editor workflow={workflow} />
 }
 
-export default page;
+export default Page;
