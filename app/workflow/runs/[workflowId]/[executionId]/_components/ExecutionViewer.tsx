@@ -40,6 +40,7 @@ import { ExecutionLog } from '@prisma/client'
 import { LogLevel } from '@/types/log'
 import { cn } from '@/lib/utils'
 import PhaseStatusBadge from './PhaseStatusBadge'
+import ReactCountUpWrapper from '@/components/ReactCountUpWrapper'
 
 type ExecutionData = Awaited<ReturnType<typeof GetWorkflowExecutionWithPhases>>
 
@@ -95,7 +96,10 @@ const ExecutionViewer = ({ initialData }: { initialData: ExecutionData }) => {
           <ExecutionLabel
             icon={CircleDashedIcon}
             label="Status"
-            value={query.data?.status}
+            value={<div className='font-semibold capitalize fle gap-2 items-center'>
+              <PhaseStatusBadge status={query.data?.status as ExecutionPhaseStatus}/>
+              <span>{query.data?.status}</span>
+            </div>}
           />
           <ExecutionLabel
             icon={CalendarIcon}
@@ -125,7 +129,7 @@ const ExecutionViewer = ({ initialData }: { initialData: ExecutionData }) => {
           <ExecutionLabel
             icon={CoinsIcon}
             label="Credits consumed"
-            value={creditsConsumed}
+            value={<ReactCountUpWrapper value={creditsConsumed}/>}
           />
         </div>
         <Separator />
@@ -183,7 +187,7 @@ const ExecutionViewer = ({ initialData }: { initialData: ExecutionData }) => {
                   <CoinsIcon size={18} className="stroke-muted-foreground" />
                   <span>Credits</span>
                 </div>
-                <span>TODO</span>
+                <span>{phaseDetails.data.creditsConsumed}</span>
               </Badge>
               <Badge variant={'outline'} className="space-x-4">
                 <div className="flex gap-1 items-center">
