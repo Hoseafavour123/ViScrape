@@ -21,6 +21,7 @@ model Workflow {
   executionPlan String?
   creditsCost Int @default(0)
 
+  cron String?
 
   status    String 
   createdAt DateTime @default(now())
@@ -29,6 +30,7 @@ model Workflow {
   lastRunAt DateTime?
   lastRunId String?
   lastRunStatus String?
+  nextRunAt DateTime?
 
   executions WorkflowExecution[]
 
