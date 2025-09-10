@@ -31,10 +31,11 @@ import { DeleteWorkflowDialog } from './DeleteWorkflowDialog'
 import RunBtn from './RunBtn'
 import SchedulerDialog from './SchedulerDialog'
 import { Badge } from '@/components/ui/badge'
-import ExecutionStatusIndicator from '@/app/workflow/runs/[workflowId]/_components/ExecutionStatusIndicator'
+import ExecutionStatusIndicator, { ExecutionStatusLabel } from '@/app/workflow/runs/[workflowId]/_components/ExecutionStatusIndicator'
 import { formatDistanceToNow } from 'date-fns'
 import { format } from 'date-fns'
 import {formatInTimeZone} from 'date-fns-tz'
+import DuplicateWorkflowDialog from './DuplicateWorkflowDialog'
 
 
 
@@ -48,7 +49,7 @@ export const WorkflowCard = ({ workflow }: { workflow: Workflow }) => {
   const isDraft = workflow.status === 'draft'
 
   return (
-    <Card className="border border-separate shadow-sm rounded-lg overflow-hidden hover:shadow-md dark:shadow-primary/30">
+    <Card className="border border-separate shadow-sm rounded-lg overflow-hidden hover:shadow-md dark:shadow-primary/30 group/card">
       <CardContent className="flex items-center justify-between p-4 h-[100px]">
         <div className="flex items-center justify-end space-x-3">
           <div
@@ -65,18 +66,24 @@ export const WorkflowCard = ({ workflow }: { workflow: Workflow }) => {
           </div>
           <div>
             <h3 className="text-base font-bold text-muted-foreground flex items-center">
-              <Link
-                href={`/workflow/editor/${workflow.id}`}
-                className="flex items-center hover:underline"
-              >
-                {workflow.name}
-              </Link>
+              <TooltipWrapper content={workflow.description}>
+                <Link
+                  href={`/workflow/editor/${workflow.id}`}
+                  className="flex items-center hover:underline"
+                >
+                  {workflow.name}
+                </Link>
+              </TooltipWrapper>
+
               {isDraft && (
                 <span className="text-xs text-yellow-800 bg-yellow-100 font-medium rounded-full py-0.5 ml-2 px-2">
                   Draft
                 </span>
               )}
+
+              <DuplicateWorkflowDialog workflowId={workflow.id} />
             </h3>
+
             <SchedulerSection
               isDraft={isDraft}
               creditsCost={workflow.creditsCost}
@@ -204,24 +211,32 @@ function LastRunDetails({ workflow }: { workflow: Workflow }) {
     <div className="bg-primary/5 px-4 py-1 flex justify-between items-center text-muted-foreground ">
       <div className="flex items-center text-sm gap-2 ">
         {lastRunAt && (
-          <Link href={`/workflow/runs/${workflow.id}/${lastRunId}`} className='flex items-center text-sm gap-2 group'>
+          <Link
+            href={`/workflow/runs/${workflow.id}/${lastRunId}`}
+            className="flex items-center text-sm gap-2 group"
+          >
             <span>Last run</span>
             <ExecutionStatusIndicator
               status={lastRunStatus as WorkflowExecutionStatus}
             />
-            <span>{lastRunStatus}</span>
+            <ExecutionStatusLabel
+              status={lastRunStatus as WorkflowExecutionStatus}
+            />
             <span>{formattedStartedAt}</span>
-            <ChevronRightIcon size={14} className='-translate-x-[2px] group-hover:translate-x-0 transition' />
+            <ChevronRightIcon
+              size={14}
+              className="-translate-x-[2px] group-hover:translate-x-0 transition"
+            />
           </Link>
         )}
         {!lastRunAt && <p>No runs yet</p>}
       </div>
       {nextRunAt && (
-        <div className='flex items-center text-sm gap-2'>
-          <ClockIcon size={12}/>
+        <div className="flex items-center text-sm gap-2">
+          <ClockIcon size={12} />
           <span>Next run at:</span>
           <span>{nextSchedule}</span>
-          <span className='text-xs'>({nextScheduleUtc} UTC)</span>
+          <span className="text-xs">({nextScheduleUtc} UTC)</span>
         </div>
       )}
     </div>
