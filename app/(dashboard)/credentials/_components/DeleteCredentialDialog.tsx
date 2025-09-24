@@ -1,7 +1,6 @@
 'use client'
 
 import { DeleteCredential } from '@/actions/credentials/DeleteCredential'
-import { deleteWorkflow } from '@/actions/workflows/deleteWorkflow'
 import {
     AlertDialog,
     AlertDialogAction,
