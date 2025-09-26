@@ -112,7 +112,6 @@ model UserPurchase {
   userId String
   stripeId String
   description String
-  credits Int
   amount Int
   currency String
   date DateTime @default(now())
