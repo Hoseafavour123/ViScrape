@@ -24,29 +24,9 @@ Here are some of the most impressive features:
 
 ---
 
-## 📸 Demo Timeline (from build video)
-
-- **00:00** – Intro  
-- **04:24** – Project Setup  
-- **31:10** – Auth Setup  
-- **37:28** – Database Setup  
-- **45:14** – Workflows Page  
-- **01:41:05** – Workflow Creation & Execution  
-- **03:34:57** – Extract Text from Element Task  
-- **04:29:48** – Workflow Validation/Execution  
-- **05:30:20** – Execution Viewer  
-- **08:43:30** – Executions History Page  
-- **09:40:33** – Execution Scheduler  
-- **12:14:04** – Extract Data with AI Task  
-- **12:57:26** – Bypass Scraping Protections  
-- **14:23:51** – Stripe Integration  
-
----
-
 ## 🛠️ Tech Stack  
 
-- **Frontend**: React (with drag-and-drop workflow UI)  
-- **Backend**: Node.js / Express  
+- **Frontend**: Nextjs 14, React (with drag-and-drop workflow UI) 
 - **Database**: PostgreSQL  
 - **Authentication**: JWT / Auth system  
 - **Billing**: Stripe API  
@@ -59,7 +39,8 @@ Here are some of the most impressive features:
 ### Prerequisites  
 - Node.js (v18+)  
 - PostgreSQL  
-- Stripe API keys  
+- Stripe API keys
+- BrightData Proxies
 
 ### Installation  
 
@@ -105,16 +86,6 @@ npm run dev
 - **Deliver via Webhook** – Push scraped data to external systems.  
 - **AI Extraction** – Use AI to interpret data.  
 - **JSON Manipulation** – Add/Read properties from JSON.  
-
----
-
-## 📊 Roadmap  
-
-- [ ] Browser extension for direct scraping from any site  
-- [ ] More AI-powered tasks (summarization, entity extraction)  
-- [ ] Export workflows as shareable templates  
-- [ ] Advanced scheduling (cron-like)  
-
 ---
 
 ## 🤝 Contributing  
