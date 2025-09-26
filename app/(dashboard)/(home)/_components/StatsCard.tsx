@@ -8,21 +8,23 @@ import ReactCountUpWrapper from '@/components/ReactCountUpWrapper';
 
 
 interface Props {
-  title: string;
-  value: number;
-  icon: LucideIcon;
+  title: string
+  value: number
+  icon: React.ReactNode
 }
 
 const StatsCard = (props: Props) => {
   return (
-    <Card className='relative overflow-hidden h-full'>
-      <CardHeader className='flex pb-2'>
+    <Card className="relative overflow-hidden h-full">
+      <CardHeader className="flex pb-2">
         <CardTitle>{props.title}</CardTitle>
-        <props.icon size={120} className='text-muted-foreground absolute -bottom-4 -right-8 stroke-primary opacity-10'/>
+        <div className="absolute -bottom-4 -right-8 opacity-10">
+          {props.icon}
+        </div>
       </CardHeader>
       <CardContent>
-        <div className='text-2xl font-bold text-primary'>
-          <ReactCountUpWrapper value={props.value}/>
+        <div className="text-2xl font-bold text-primary">
+          <ReactCountUpWrapper value={props.value} />
         </div>
       </CardContent>
     </Card>

@@ -59,17 +59,17 @@ async function StatsCards({selectedPeriod}:{selectedPeriod: Period}) {
       <StatsCard
         title="Workflows Executions"
         value={data.workflowExecutions}
-        icon={CirclePlayIcon}
+        icon={<CirclePlayIcon/>}
       />
       <StatsCard
         title="Phase Executions"
         value={data.phaseExecution}
-        icon={WaypointsIcon}
+        icon={<WaypointsIcon/>}
       />
       <StatsCard
         title="Credits Consumed"
         value={data.creditsConsumed}
-        icon={CoinsIcon}
+        icon={<CoinsIcon/>}
       />
     </div>
   )
