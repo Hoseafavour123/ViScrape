@@ -11,7 +11,7 @@ import UserAvailableCreditsBadge from './UserAvailableCreditsBadge'
 
 const routes = [
   {
-    href: '/',
+    href: '',
     label: 'Home',
     icon: HomeIcon,
   },
@@ -26,8 +26,8 @@ const routes = [
     icon: ShieldCheckIcon,
   },
   {
-    href: 'billings',
-    label: 'Billings',
+    href: 'billing',
+    label: 'Billing',
     icon: CoinsIcon,
   },
 ]
@@ -43,7 +43,7 @@ const DesktopSidebar = () => {
       <div className='p-2'><UserAvailableCreditsBadge/></div>
       <div className='flex flex-col p-2'>
        {routes.map((route) => (
-        <Link key={route.href} href={route.href} className={buttonVariants({
+        <Link key={route.href} href={`/${route.href}`} className={buttonVariants({
             variant: route.href === activeRoute.href ? 'sidebarActiveItem' : 'sidebarItem',
             className: 'w-full justify-start mb-2',
         })}>
@@ -82,7 +82,7 @@ export const MobileSidebar = () => {
                 {routes.map((route) => (
                   <Link
                     key={route.href}
-                    href={route.href}
+                    href={`/${route.href}`}
                     className={buttonVariants({
                       variant:
                         route.href === activeRoute.href

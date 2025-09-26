@@ -9,7 +9,8 @@ import StatsCard from './_components/StatsCard'
 import { GetWorkflowExecutionStats } from '@/actions/analytics/GetWorkflowExecutionStats'
 import ExecutionStatusChart from './_components/ExecutionStatusChart'
 import { GetCreditsUsageInPeriod } from '@/actions/analytics/GetCreditsUsageInPeriod'
-import CreditUsageChart from './_components/billing/_components/CreditUsageChart'
+import CreditUsageChart from '../billing/_components/CreditUsageChart'
+
 
 const HomePage = ({
   searchParams,
