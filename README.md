@@ -1,10 +1,12 @@
-[README.md](https://github.com/user-attachments/files/22560998/README.md)
-# ViScrape 🚀  
+# ViScrape 
 **AI-powered Visual Web Scraper**
 
 ViScrape is an **interactive, drag-and-drop web scraping platform** that allows users to visually design, validate, and execute scraping workflows.  
-It combines **traditional scraping tasks** with **AI-powered extraction**, user-friendly workflow management, and robust execution tracking.  
+It combines **traditional scraping tasks** with **AI-powered extraction**, user-friendly workflow management, and robust execution tracking.
 
+![Demo Workflow](./public/viscrape0.PNG)
+![Billing Page](./public/billings.PNG)
+![Workflow](./public/workflow.PNG)
 ---
 
 ## 🌟 Features  
