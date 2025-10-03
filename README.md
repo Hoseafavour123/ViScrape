@@ -12,7 +12,7 @@ It combines **traditional scraping tasks** with **AI-powered extraction**, user-
 
 ## 🌟 Features  
 
-Here are some of the most impressive features:  
+Here are some of the features:  
 
 1. **Visual Workflow Builder** – Create scraping pipelines with drag-and-drop nodes, edges, and live validation.  
 2. **Rich Task Library** – Includes tasks like *Extract Text*, *Click Element*, *Wait for Element*, *Fill Input*, *Navigate to URL*, *Scroll to Element*, *Deliver via Webhook*, and more.  
